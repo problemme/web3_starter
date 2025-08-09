@@ -1,0 +1,21 @@
+//版本至少是0.8.8
+pragma solidity ^0.8.8;
+//合约命名
+contract Simpletest{
+//全局变量设置
+bool IsWalletSafe = true;//boolean代表布尔值
+uint256 walletnum = 12;//uint代表正数
+int104 walletNum = -12;//int表示整数
+address mywallet = 0xf98E37c8a9769C636C890dB4ee5CBf0724c4D78c;//byte形式的地址
+//函数中赋值的变量必须在函数外声明
+uint256 num1;
+//该函数用于赋值变量并储存
+function Storage(uint256 walletnum1) public{
+    num1 = walletnum1;
+}
+//该函数用于读取全局变量
+function retrieve() public view returns (uint256){
+    return num1;
+}
+}
+//我们需要理解它是合约（交易），如果在赋值变量函数里出现多个赋值、即便是局部变量，读取变量函数也会报错
